@@ -2149,8 +2149,7 @@ def print_tg_info():
                 proxy_links.append({"user": user, "link": tls_link})
                 printing_line = "{}: {}".format(user, tls_link)
                 print(printing_line, flush=True)
-                links.write(printing_line)
-                links.write('\n')
+                links.write(printing_line + '\n')
         links.write('_____________________________________________________________\n')
 
 
