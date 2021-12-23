@@ -8,7 +8,7 @@ services:
         - ./config.py:/home/tgproxy/config.py
         - ./mtprotoproxy.py:/home/tgproxy/mtprotoproxy.py
         - /etc/localtime:/etc/localtime:ro
-        - ./links.txt:/home/tgproxy/links.txt
+        - ./data:/home/tgproxy/data
     logging:
         driver: "json-file"
         options:
