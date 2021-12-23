@@ -1815,6 +1815,7 @@ async def stats_printer():
     global last_client_ips
     global last_clients_with_time_skew
     global last_clients_with_same_handshake
+    data_file = open('users_links.txt', 'a')
 
     while True:
         await asyncio.sleep(config.STATS_PRINT_PERIOD)
@@ -1825,8 +1826,9 @@ async def stats_printer():
                 user, stat["connects"], stat["curr_connects"],
                 (stat["octets_from_client"] + stat["octets_to_client"]) / 1000000,
                 stat["msgs_from_client"] + stat["msgs_to_client"]))
+            data_file.write(f'{user},{stat["connects"]},{stat["curr_connects"]},{stat["octets_from_client"]},{stat["octets_to_client"]},{stat["msgs_from_client"]},{stat["msgs_to_client"]}\n')
         print(flush=True)
-
+        data_file.close()
         if last_client_ips:
             print("New IPs:")
             for ip in last_client_ips:

@@ -37,5 +37,11 @@ MODES = {
 # Use random existing domain, proxy checks it on start
 TLS_DOMAIN = "www.gitlab.com"
 
+# in seconds
+STATS_PRINT_PERIOD = 10
+PREFER_IPV6=False
+
+# MY_DOMAIN = 'farhang.com'
+
 # Tag for advertising, obtainable from @MTProxybot
 # AD_TAG = "f5ff1ac8b6a32710eadf517dcb1bcdac"
