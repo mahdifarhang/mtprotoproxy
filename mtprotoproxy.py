@@ -1819,7 +1819,7 @@ async def stats_printer():
 
     while True:
         await asyncio.sleep(config.STATS_PRINT_PERIOD)
-        data_file = open('users_data.csv', 'a')
+        data_file = open('data/users_data.csv', 'a')
 
         print("Stats for", time.strftime("%d.%m.%Y %H:%M:%S"))
         for user, stat in user_stats.items():
@@ -2123,7 +2123,7 @@ def print_tg_info():
 
     proxy_links = []
 
-    links = open('users_links.txt', 'w')
+    links = open('data/users_links.txt', 'w')
 
     for user, secret in sorted(config.USERS.items(), key=lambda x: x[0]):
         for ip in ip_addrs:
