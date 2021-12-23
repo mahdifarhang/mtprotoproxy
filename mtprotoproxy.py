@@ -2120,7 +2120,7 @@ def print_tg_info():
 
     proxy_links = []
 
-    links = open('data/users.txt', 'w')
+    links = open('users_links.txt', 'w')
 
     for user, secret in sorted(config.USERS.items(), key=lambda x: x[0]):
         for ip in ip_addrs:

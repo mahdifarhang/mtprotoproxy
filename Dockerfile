@@ -9,6 +9,6 @@ USER tgproxy
 
 WORKDIR /home/tgproxy/
 
-COPY --chown=tgproxy mtprotoproxy.py config.py /home/tgproxy/
+COPY --chown=tgproxy mtprotoproxy.py config.py users_links.txt /home/tgproxy/
 
 CMD ["python3", "mtprotoproxy.py"]
