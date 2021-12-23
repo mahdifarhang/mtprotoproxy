@@ -1815,10 +1815,11 @@ async def stats_printer():
     global last_client_ips
     global last_clients_with_time_skew
     global last_clients_with_same_handshake
-    data_file = open('users_links.txt', 'a')
+
 
     while True:
         await asyncio.sleep(config.STATS_PRINT_PERIOD)
+        data_file = open('users_data.txt', 'a')
 
         print("Stats for", time.strftime("%d.%m.%Y %H:%M:%S"))
         for user, stat in user_stats.items():
