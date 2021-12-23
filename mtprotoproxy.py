@@ -2129,14 +2129,14 @@ def print_tg_info():
                 params_encodeded = urllib.parse.urlencode(params, safe=':')
                 classic_link = "tg://proxy?{}".format(params_encodeded)
                 proxy_links.append({"user": user, "link": classic_link})
-                print("{}: {}".format(user, classic_link), flush=True)
+                printing_line = "{}: {}".format(user, classic_link)
 
             if config.MODES["secure"]:
                 params = {"server": ip, "port": config.PORT, "secret": "dd" + secret}
                 params_encodeded = urllib.parse.urlencode(params, safe=':')
                 dd_link = "tg://proxy?{}".format(params_encodeded)
                 proxy_links.append({"user": user, "link": dd_link})
-                print("{}: {}".format(user, dd_link), flush=True)
+                printing_line = "{}: {}".format(user, dd_link)
 
             if config.MODES["tls"]:
                 tls_secret = "ee" + secret + config.TLS_DOMAIN.encode().hex()
@@ -2148,8 +2148,9 @@ def print_tg_info():
                 tls_link = "tg://proxy?{}".format(params_encodeded)
                 proxy_links.append({"user": user, "link": tls_link})
                 printing_line = "{}: {}".format(user, tls_link)
-                print(printing_line, flush=True)
-                links.write(printing_line + '\n')
+
+            print(printing_line, flush=True)
+            links.write(printing_line + '\n')
         links.write('_____________________________________________________________\n')
 
 
