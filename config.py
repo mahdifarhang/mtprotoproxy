@@ -38,7 +38,7 @@ MODES = {
 TLS_DOMAIN = "www.gitlab.com"
 
 # in seconds
-STATS_PRINT_PERIOD = 10
+STATS_PRINT_PERIOD = 10 * 60
 PREFER_IPV6=False
 
 # MY_DOMAIN = 'farhang.com'
