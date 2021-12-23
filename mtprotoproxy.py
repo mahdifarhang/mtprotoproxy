@@ -1819,7 +1819,7 @@ async def stats_printer():
 
     while True:
         await asyncio.sleep(config.STATS_PRINT_PERIOD)
-        data_file = open('users_data.txt', 'a')
+        data_file = open('users_data.csv', 'a')
 
         print("Stats for", time.strftime("%d.%m.%Y %H:%M:%S"))
         for user, stat in user_stats.items():
