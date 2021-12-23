@@ -2120,7 +2120,7 @@ def print_tg_info():
 
     proxy_links = []
 
-    links = open('links.txt', 'a')
+    # links = open('users_links.txt', 'w')
 
     for user, secret in sorted(config.USERS.items(), key=lambda x: x[0]):
         for ip in ip_addrs:
@@ -2149,9 +2149,9 @@ def print_tg_info():
                 proxy_links.append({"user": user, "link": tls_link})
                 printing_line = "{}: {}".format(user, tls_link)
                 print(printing_line, flush=True)
-                links.write(printing_line)
-                links.write('\n')
-        links.write('_____________________________________________________________\n')
+        #         links.write(printing_line)
+        #         links.write('\n')
+        # links.write('_____________________________________________________________\n')
 
 
         if secret in ["00000000000000000000000000000000", "0123456789abcdef0123456789abcdef",
@@ -2161,7 +2161,7 @@ def print_tg_info():
             random_secret = "".join(myrandom.choice("0123456789abcdef") for i in range(32))
             print("You can change it to this random secret:", random_secret, flush=True)
             print_default_warning = True
-    links.close()
+    # links.close()
 
     if config.TLS_DOMAIN == "www.google.com":
         print("The default TLS_DOMAIN www.google.com is used, this is not recommended", flush=True)
