@@ -8,7 +8,7 @@ USER root
 WORKDIR /home/tgproxy/
 
 COPY --chown=root mtprotoproxy.py config.py /home/tgproxy/
-RUN mkdir data &&\
+RUN mkdir data 
 #    chmod 777 data/users_links.txt data/users_data.csv
 
 
