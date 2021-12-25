@@ -1820,6 +1820,7 @@ async def stats_printer():
     while True:
         await asyncio.sleep(config.STATS_PRINT_PERIOD)
         data_file = open('data/users_data.csv', 'a')
+        now = datetime.datetime.now()
 
         print("Stats for", time.strftime("%d.%m.%Y %H:%M:%S"))
         for user, stat in user_stats.items():
@@ -1827,7 +1828,7 @@ async def stats_printer():
                 user, stat["connects"], stat["curr_connects"],
                 (stat["octets_from_client"] + stat["octets_to_client"]) / 1000000,
                 stat["msgs_from_client"] + stat["msgs_to_client"]))
-            data_file.write(f'{user},{stat["connects"]},{stat["curr_connects"]},{stat["octets_from_client"]},{stat["octets_to_client"]},{stat["msgs_from_client"]},{stat["msgs_to_client"]}\n')
+            data_file.write(f'{user},{stat["connects"]},{stat["curr_connects"]},{stat["octets_from_client"]},{stat["octets_to_client"]},{stat["msgs_from_client"]},{stat["msgs_to_client"]},{now.year},{now.month},{now.day},{now.hour},{now.minute}\n')
         print(flush=True)
         data_file.close()
         if last_client_ips:
