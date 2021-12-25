@@ -2123,6 +2123,9 @@ def print_tg_info():
 
     proxy_links = []
 
+    data = open('data/users_data.csv', 'a')
+    data.write("name,connects,curr_connects,octets_from_client,octets_to_client,msgs_from_client,msgs_to_client,year,month,date,hour,minute\n")
+    data.close()
     links = open('data/users_links.txt', 'w')
 
     for user, secret in sorted(config.USERS.items(), key=lambda x: x[0]):
