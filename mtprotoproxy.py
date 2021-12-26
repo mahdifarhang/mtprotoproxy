@@ -2124,7 +2124,7 @@ def print_tg_info():
 
     proxy_links = []
 
-    data = open('data/users_data.csv', 'a')
+    data = open('data/users_data.csv', 'w')
     data.write("name,connects,curr_connects,octets_from_client,octets_to_client,msgs_from_client,msgs_to_client,year,month,date,hour,minute\n")
     data.close()
     links = open('data/users_links.txt', 'w')

@@ -1,17 +1,19 @@
-version: '2.0'
+version: '3'
 services:
-  mtprotoproxy:
-    build: .
-    restart: unless-stopped
-    network_mode: "host"
+  python_proxy:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: always
+    logging:
+#      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "10"
     volumes:
         - ./config.py:/home/tgproxy/config.py
         - ./mtprotoproxy.py:/home/tgproxy/mtprotoproxy.py
         - ./data:/home/tgproxy/data
         - /etc/localtime:/etc/localtime:ro
-    logging:
-        driver: "json-file"
-        options:
-            max-file: "10"
-            max-size: "10m"
-#    mem_limit: 1024m
+    ports:
+      - "0.0.0.0:3443:443"
