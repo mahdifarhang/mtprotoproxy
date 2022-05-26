@@ -16,4 +16,4 @@ services:
         - ./data:/home/tgproxy/data
         - /etc/localtime:/etc/localtime:ro
     ports:
-      - "0.0.0.0:3443:443"
+      - "0.0.0.0:3443:3443"
